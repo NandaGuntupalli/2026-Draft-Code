@@ -30,6 +30,22 @@ public class Turret extends SubsystemBase {
     turretMotor.setPosition(angle);
   }
 
+  protected double parseAngle(double angle){
+        angle %= 360;
+
+        if (angle > 180) {
+            angle -= 360;
+        } 
+
+        if (angle < -180) {
+            angle += 360;
+        } 
+
+        return angle;
+
+        
+    }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
